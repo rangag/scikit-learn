@@ -7,6 +7,7 @@ from sklearn import linear_model
 
 xmin, xmax = -5, 5
 n_samples = 100
+#set some seed value so the random values generated are consistent
 np.random.seed(0)
 X = np.random.normal(size=n_samples)
 y = (X > 0).astype(np.float)
@@ -32,13 +33,17 @@ plt.plot(X_test, loss, color='blue', linewidth=3)
 
 ols = linear_model.LinearRegression()
 ols.fit(X, y)
-# plt.plot(X_test, ols.coef_ * X_test + ols.intercept_, linewidth=1)
+plt.plot(X_test, ols.coef_ * X_test + ols.intercept_, linewidth=1)
 plt.axhline(.5, color='.5')
 
 plt.ylabel('y')
 plt.xlabel('X')
+
+#to show the ticks comment below twol lines of code
 plt.xticks(())
 plt.yticks(())
+
+
 plt.ylim(-.25, 1.25)
 plt.xlim(-4, 10)
 
